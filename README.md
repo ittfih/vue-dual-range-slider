@@ -60,21 +60,23 @@ Each way of declaring TimeUnit is recognised. Names and shortcut names are not c
 
 ```
 <template>
-    min: {{ min }} max: {{ max }}
-    <DualRangeSlider @changed="(value) => handleChange(value)" />
+  min: {{ min }} max: {{ max }}
+  <vue-dual-range-slider @changed="(value) => handleChange(value)" />
 </template>
 
 <script setup lang="ts">
-import DualRangeSlider from './components/DualRangeSlider.vue';
+import { VueDualRangeSlider } from 'vue-dual-range-slider';
+import 'vue-dual-range-slider/dist/vue-dual-range-slider.css'
 import { ref } from 'vue'
 
 const min = ref(0)
 const max = ref(100)
 
 const handleChange = (newValues: number[]) => {
-    min.value = newValues[0]
-    max.value = newValues[1]
+  min.value = newValues[0]
+  max.value = newValues[1]
 }
 </script>
+
 
 ```

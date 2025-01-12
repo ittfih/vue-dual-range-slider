@@ -34,6 +34,7 @@ import { ref, onMounted, watch } from 'vue'
 import { Direction } from '../enums/Direction';
 import { timeToString, stringToTimeUnit, stringToMiliseconds } from '../enums/TimeUnit';
 
+
 const props = defineProps({
     minValue: { type: Number, default: 0 },
     maxValue: { type: Number, default: 100 },

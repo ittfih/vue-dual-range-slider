@@ -1,11 +1,31 @@
 {
   "name": "vue-dual-range-slider",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Dual range slider",
-  "main": "dist/vue-dual-range-slider.js",
+  "main": "./dist/vue-dual-range-slider.umd.cjs",
+  "module": "./dist/vue-dual-range-slider.js",
+  "types": "./dist/index.d.ts",
   "author": "ittfih",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ittfih/vue-dual-range-slider"
+  },
+  "files": [
+    "dist",
+    "src/components/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue-dual-range-slider.js",
+      "require": "./dist/vue-dual-range-slider.umd.cjs"
+    },
+    "./dist/vue-dual-range-slider.css": {
+      "import": "./dist/vue-dual-range-slider.css",
+      "require": "./dist/vue-dual-range-slider.css"
+    }
+  },
   "keywords": [
     "vue",
     "vue3",
@@ -16,14 +36,18 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.10.5",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "tslib": "^2.8.1",
     "typescript": "~5.6.2",
     "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.4.0",
     "vue-tsc": "^2.2.0"
   }
 }

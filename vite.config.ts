@@ -1,14 +1,28 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import * as path from "node:path";
+import dts from "vite-plugin-dts";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), dts()],
   build: {
     lib: {
-      entry: './src/components/VueDualRangeSlider.vue',
-      name: 'VueDualRangeSlider',
-      fileName: 'vue-dual-range-slider'
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "VueDualRangeSlider",
+      fileName: "vue-dual-range-slider"
+    },
+    rollupOptions: {
+      external: ["vue"],
+      output: {
+        globals: {
+          vue: "Vue"
+        }
+      }
+    }
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src")
     }
   }
-})
+});
